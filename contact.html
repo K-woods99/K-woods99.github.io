@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+Student Name: Katelyn Woods
+File Name: contact.html
+Current Date: 04/20/2024
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluffy Feline Facts</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Handlee&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="images/contactbanner.png" alt="Gray cat with laptop" style="max-width: 100%; height: auto;"></a>
+        <nav style="margin-top: 50px;">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="breeds.html">Breeds</a>
+                    <ul class="dropdown">
+                        <li><a href="american_shorthair.html">American Shorthair</a></li>
+                        <li><a href="bengal.html">Bengal</a></li>
+                        <li><a href="birman.html">Birman</a></li>
+                        <li><a href="ragdoll.html">Ragdoll</a></li>
+                        <li><a href="sphynx.html">Sphynx</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="care.html">Cat Care</a>
+                    <ul class="dropdown">
+                        <li><a href="general_tips.html">General Tips</a></li>
+                        <li><a href="nutrition_tips.html">Nutrition Tips</a></li>
+                        <li><a href="grooming_tips.html">Grooming Tips</a></li>
+                        <li><a href="common_illnesses.html">Common Illnesses</a></li>
+                    </ul>
+                </li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="references.html">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2 style="text-decoration: underline;">Contact Us!</h2>
+            <form action="submit_contact_form.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 CIT 155 Final Project</p>
+    </footer>
+
+    <div class="email-link">
+        <a href="mailto:kwoods0067@kctcs.edu">
+            <img src="images/outlooklogo.png" alt="Email Us">
+        </a>
+    </div>
+</body>
+</html>

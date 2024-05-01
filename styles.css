@@ -1,0 +1,389 @@
+/*
+Student Name: Katelyn Woods
+File Name: styles.css
+Current Date: 04/20/2024
+*/
+
+body {
+    font-family: 'Handlee', cursive;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    padding: 15px 20px; 
+    border-radius: 5px;
+    background-color: #82b7d8; 
+}
+
+nav ul li a:hover {
+    background-color: #a1c7e1; 
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    width: auto;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: calc(100% - 1px);
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px; 
+    padding: 10px;
+}
+
+.dropdown li {
+    display: block;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    white-space: nowrap;
+}
+
+nav ul li {
+    position: relative;
+    text-align: center; 
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.media-nav ul li {
+    position: relative;
+    text-align: center;
+}
+
+.media-nav ul li a {
+    padding: 15px 20px; 
+}
+
+.media-nav .dropdown {
+    display: none;
+    position: absolute;
+    width: auto;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: calc(100% - 1px);
+    padding-top: 10px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+}
+
+.media-nav ul li:hover .dropdown {
+    display: block;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Handlee', cursive;
+}
+
+main, footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+section {
+    width: 80%;
+}
+
+header h1 {
+    text-decoration: underline;
+}
+
+section h2 {
+    background-color: #e8afff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 3px solid #ffffff;
+}
+
+section h3 {
+    background-color: #bcb0e8;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 3px solid #ffffff;
+}
+
+.breeds-list {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0 auto; 
+    width: 60%; 
+}
+
+.breeds-list li a {
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    padding: 8px 15px; 
+    background-color: #bcb0e8;
+    border: 3px solid #ffffff; 
+    border-radius: 5px;
+    margin-bottom: 10px; 
+}
+
+.breeds-list li a:hover {
+    background-color: #dcdaff;
+    color: #ffffff; 
+}
+
+.care-list {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0 auto; 
+    width: 60%; 
+}
+
+.care-list li a {
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    padding: 8px 15px; 
+    background-color: #bcb0e8;
+    border: 3px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 10px; 
+}
+
+.care-list li a:hover {
+    background-color: #dcdaff;
+}
+
+.nutrition-section,
+.general-section,
+.grooming-section,
+.illnesses-section,
+.american-shorthair-section,
+.bengal-section,
+.birman-section,
+.ragdoll-section,
+.sphynx-section {
+    padding: 20px;
+}
+
+.info-box,
+.general-section .info-box,
+.grooming-section .info-box,
+.illnesses-section .info-box,
+.american-shorthair-section .info-box,
+.bengal-section .info-box,
+.birman-section .info-box,
+.ragdoll-section .info-box,
+.sphynx-section .info-box {
+    background-color: #b4d9f1;
+    border-radius: 5px;
+    border: 3px solid #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+}
+
+.info-box ul,
+.general-section .info-box ul,
+.grooming-section .info-box ul,
+.illnesses-section .info-box ul,
+.american-shorthair-section .info-box ul,
+.bengal-section .info-box ul,
+.birman-section .info-box ul,
+.ragdoll-section .info-box ul,
+.sphynx-section .info-box ul {
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+.info-box li,
+.general-section .info-box li,
+.grooming-section .info-box li,
+.illnesses-section .info-box li,
+.american-shorthair-section .info-box li,
+.bengal-section .info-box li,
+.birman-section .info-box li,
+.ragdoll-section .info-box li,
+.sphynx-section .info-box li {
+    padding-left: 20px;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table tbody tr td {
+    padding: 8px 15px;
+    background-color: #bcb0e8; 
+}
+
+table tbody tr td a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #000000;
+    border: 3px solid #ffffff; 
+}
+
+table tbody tr td a:hover {
+    color: #dcdaff;
+}
+
+.media-page nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.media-page main {
+    text-align: center;
+}
+
+.media-page section h2 {
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+
+.extra-images-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.extra-images-container img {
+    max-width: 100px; 
+    height: auto; 
+    margin: 5px; 
+}
+
+img {
+    border: 3px solid white;
+}
+
+.media-page #slideshow-container {
+    display: block;
+    margin: 0 auto; 
+    max-width: 80%; 
+}
+
+.media-page #slideshow-container img {
+    display: block;
+    margin: 0 auto;
+}
+
+#slideshow-container {
+    max-width: 100%; 
+    overflow: hidden; 
+    margin: 0 auto; 
+}
+
+#slideshow-container img {
+    display: block; 
+    width: 300px; 
+    height: auto; 
+    margin: 0 auto; 
+}
+
+@media screen and (min-width: 768px) {
+    h2 {
+        text-align: left; 
+        margin-left: auto; 
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        font-size: 14px; 
+    }
+
+}
+
+form {
+    max-width: 400px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}
+
+form label {
+    display: block; 
+    margin-bottom: 10px;
+    font-weight: bold; 
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+    border-radius: 5px; 
+    border: 3px solid #ffffff; 
+    outline: none;
+    background-color: #e8afff; 
+}
+
+form input[type="submit"] {
+    background-color: #82b7d8; 
+    color: #000000; 
+    border: 3px solid #ffff; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+form input[type="submit"]:hover {
+    background-color: #a1c7e1;
+}
+
+.email-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.email-link img {
+    width: 50px; 
+    height: auto;
+}
+
+.video-container {
+    text-align: center;
+}
+
+.video-container video {
+    max-width: 100%; 
+}
