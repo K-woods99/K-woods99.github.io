@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIT 140 Program 5</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    table {
+      margin: 20px auto;
+      width: 30%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Select a Major</h1>
+  <div>
+    <button id="cit-majors-btn">CIT Majors</button>
+    <button id="bus-majors-btn">Business Majors</button>
+  </div>
+  <p id="filter-message">Data is filtered by major</p>
+  <div id="results-container">
+    
+  </div>
+
+  <script id="student-template" type="text/x-handlebars-template">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Major</th>
+          <th>Midterm</th>
+          <th>Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{major}}</td>
+          <td>{{midterm}}</td>
+          <td>{{final}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const resultsContainer = document.getElementById('results-container');
+      const citButton = document.getElementById('cit-majors-btn');
+      const busButton = document.getElementById('bus-majors-btn');
+
+      let studentsData = [];
+
+      fetch('cit5students.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          studentsData = data;
+        })
+        .catch(error => console.error('Error fetching JSON data:', error));
+
+      function displayStudentsByMajor(major) {
+        const filteredData = studentsData.filter(student => student.major === major);
+
+        const templateSource = document.getElementById('student-template').innerHTML;
+        const template = Handlebars.compile(templateSource);
+
+        const html = template(filteredData);
+        resultsContainer.innerHTML = html;
+      }
+
+      citButton.addEventListener('click', () => displayStudentsByMajor('CIT'));
+      busButton.addEventListener('click', () => displayStudentsByMajor('BUS'));
+    });
+  </script>
+</body>
+</html>
