@@ -1,0 +1,77 @@
+<!-- 
+Katelyn Woods
+CIT 140: Javascript 1 
+Program 6
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minneapolis/St. Paul Speeding Tickets</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Our Website</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">All Tickets</a></li>
+                <li><a href="25over.html">25mph or more over</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="ticketApp">
+        <h2>Tickets July 4, 2014, Minneapolis/St. Paul</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Ticket ID</th>
+                    <th>Time</th>
+                    <th>Posted Speed</th>
+                    <th>MPH Over</th>
+                    <th>Violator Sex</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="ticket in tickets" :key="ticket.tid">
+                    <td>{{ ticket.tid }}</td>
+                    <td>{{ ticket.stop_time }}</td>
+                    <td>{{ ticket.posted_speed }}</td>
+                    <td>{{ ticket.actual_speed - ticket.posted_speed }}</td>
+                    <td>{{ ticket.violator_sex }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                tickets: []
+            };
+        },
+        created() {
+            this.getData(); 
+        },
+        methods: {
+            async getData() {
+                const response = await fetch('tickets1.json');
+                this.tickets = await response.json();
+            }
+        }
+    });
+
+    app.mount('#ticketApp');
+</script>
+
+</body>
+</html>
