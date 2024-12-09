@@ -3,56 +3,61 @@ Katelyn Woods
 CIT 140
 Program 6
 -->
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Speeding Tickets - 25 Over</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script> 
 </head>
 <body>
+
 <div class="container">
     <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Our Website</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">All Tickets</a></li>
-                <li class="active"><a href="25over.html">25mph or more over</a></li>
-            </ul>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Our Website</a>
         </div>
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">All Tickets</a></li>
+            <li class="active"><a href="25over.html">25mph or more over</a></li>
+        </ul>
     </nav>
 
-    <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over</h2>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Ticket ID</th>
-                <th>Time</th>
-                <th>Posted Speed</th>
-                <th>MPH Over</th>
-                <th>Violator Sex</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="ticket in ticketsOver25">
-                <td>{{ ticket.tid }}</td>
-                <td>{{ ticket.stop_time }}</td>
-                <td>{{ ticket.posted_speed }}</td>
-                <td>{{ ticket.actual_speed - ticket.posted_speed }}</td>
-                <td>{{ ticket.violator_sex }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="ticketApp">
+        <h2>Tickets July 4, 2014, Minneapolis/St. Paul, 25 mph or more over</h2>
+        
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Ticket ID</th>
+                    <th>Time</th>
+                    <th>Posted Speed</th>
+                    <th>MPH Over</th>
+                    <th>Violator Sex</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="ticket in ticketsOver25" :key="ticket.tid">
+                    <td>{{ ticket.tid }}</td>
+                    <td>{{ ticket.stop_time }}</td>
+                    <td>{{ ticket.posted_speed }}</td>
+                    <td>{{ ticket.actual_speed - ticket.posted_speed }}</td>
+                    <td>{{ ticket.violator_sex }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
 </div>
 
 <script>
-    new Vue({
-        el: '.container',
-        data: {
-            tickets: []
+    const app = Vue.createApp({
+        data() {
+            return {
+                tickets: []
+            };
         },
         computed: {
             ticketsOver25() {
@@ -60,13 +65,18 @@ Program 6
             }
         },
         created() {
-            fetch('tickets1.json')
-                .then(response => response.json())
-                .then(data => {
-                    this.tickets = data;
-                });
+            this.getData();
+        },
+        methods: {
+            async getData() {
+                const response = await fetch('tickets1.json');
+                this.tickets = await response.json();
+            }
         }
     });
+
+    app.mount('#ticketApp');
 </script>
+
 </body>
 </html>
